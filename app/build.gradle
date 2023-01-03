@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    // note: use gradle.properties in project root level to set your api credentials
+    def apiKey = project.properties['indoorAtlasApiKey'] ?: "api-key-not-set"
+    def apiSecret = project.properties['indoorAtlasApiSecret'] ?: "api-secret-not-set"
+    def backgroundReportEndPoint = project.properties['backgroundReportEndPoint'] ?: ""
+
+
+    defaultConfig {
+        applicationId "com.cat300.IndoorNavigationSystem"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        // avoid getting errors from malformed string resources if secret contains '%' chars
+        resValue "string", "indooratlas_api_key", apiKey
+        resValue "string", "indooratlas_api_secret", apiSecret.replaceAll("%", "\\\\u0025")
+        resValue "string", "background_report_endpoint", backgroundReportEndPoint
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+//    signingConfigs {
+//        debug {
+//            storeFile file("debug.keystore")
+//            storePassword "android"
+//            keyAlias "sdk_debug"
+//            keyPassword "android"
+//        }
+//    }
+
+    buildTypes {
+//        debug {
+//            debuggable true
+//        }
+        release {
+            //signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    //implementation "com.indooratlas.android:indooratlas-android-sdk:3.3.6@aar"
+    implementation 'com.indooratlas.android:indooratlas-android-sdk:3.3.6'
+    //implementation 'com.android.support:design:28.0.0'
+    //implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+    implementation 'com.google.maps.android:android-maps-utils:0.3.4'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.2.0'
+
+}

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">IndoorNavigationSystem</string>
+<!--    <string name="indooratlas_api_key">b85d9575-c11a-4f1c-8eed-ad44b657c8f9</string>-->
+<!--    <string name="indooratlas_api_secret">rXUgqA2wqeNBEzeQLkXGWLYQHmtGSvbUF50yZxNsAhBqmu0oQ8CFtEzUHP4dxb8/W9+b8fH2ckyuuNcHGN72deSonTQvy0rjqKMHrj3vcOozRyLaBa+S3IermqiyuQ==</string>-->
+    <string name="button_close">Close</string>
+    <string name="button_ok">OK</string>
+
+    <string name="permission_button_accept">Sure</string>
+    <string name="permission_button_deny">Deny</string>
+    <string name="example_wayfinding_description">Demonstrates usage of IndoorAtlas Wayfinding &amp; PoIs</string>
+    <string name="example_credentials_title">Set credentials</string>
+    <string name="example_wayfinding_title">Wayfinding</string>
+    <string name="configuration_incomplete_title">Configuration incomplete</string>
+    <string name="configuration_incomplete_message">API credentials needed, please see gradle.properties in project root level.</string>
+    <string name="location_permission_request_title">Permission required</string>
+    <string name="location_permission_request_rationale">Access to coarse location is required for faster first fix and for some examples.</string>
+    <string name="location_permission_denied_message">No access to locations. Time to first fix may be severely delayed and some examples may not work!</string>
+    <string name="example_foregroundservice_title">Background mode (Foreground Service)</string>
+    <string name="example_credentials_description">Demonstrates setting credentials from code</string>
+    <string name="no_destination_specified">No destination is specified. Please try again.</string>
+
+
+
+
+</resources>
